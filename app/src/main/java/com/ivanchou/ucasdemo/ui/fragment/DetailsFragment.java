@@ -33,10 +33,11 @@ public class DetailsFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mDetailsView = inflater.inflate(R.layout.fragment_details,container,false);
+        View view = inflater.inflate(R.layout.fragment_details,container,false);
+        mDetailsView = view;
         createTestEvent();
         drawView();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     @Override
@@ -64,6 +65,22 @@ public class DetailsFragment extends BaseFragment {
         authorNickView.setText(mEvent.author.name);
         placeAtView.setText(mEvent.placeAt);
         startAtView.setText(mEvent.startAt);
+    }
+
+    public void getData(){
+        drawView();
+        TextView authorNickView = (TextView) mDetailsView.findViewById(R.id.tv_details_author_nick);
+        TextView placeAtView = (TextView) mDetailsView.findViewById(R.id.tv_details_place_at);
+        TextView startAtView = (TextView) mDetailsView.findViewById(R.id.tv_details_start_at);
+
+        authorNickView.invalidate();
+        placeAtView.invalidate();
+        startAtView.invalidate();
+    }
+
+    public void setEvent(EventModel event){
+        mEvent = event;
+        return;
     }
     /*
         create test event
