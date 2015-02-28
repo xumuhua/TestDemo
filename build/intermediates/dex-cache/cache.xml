@@ -9,6 +9,13 @@
         <dex dex="C:\Users\ChelseaFC\Documents\GitHub\UCASDemo\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-be6ede5f2eb6699c071603e92da7eb2895472420.jar" />
     </item>
     <item
+        jar="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\pre-dexed\debug\classes-2a49ef289eb6fb56ebb39a879969448766eed2a8.jar" />
+    </item>
+    <item
         jar="C:\Users\ChelseaFC\Documents\GitHub\UCASDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
@@ -30,11 +37,25 @@
         <dex dex="C:\Users\ChelseaFC\Documents\GitHub\UCASDemo\app\build\intermediates\pre-dexed\debug\classes-9ae547d147ea033c9495972650cee5a6a3321568.jar" />
     </item>
     <item
+        jar="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\pre-dexed\debug\classes-c9e9baa4819fbcebd54f5daf205168796f5f574e.jar" />
+    </item>
+    <item
         jar="C:\Users\ChelseaFC\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
         <dex dex="C:\Users\ChelseaFC\Documents\GitHub\UCASDemo\app\build\intermediates\pre-dexed\debug\gson-2.2.4-bf95a2ad7b7a29ba684416fda0c3d320e3fc1b20.jar" />
+    </item>
+    <item
+        jar="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\Users\ChelseaFC\Documents\GitHub\TestDemo\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-5fb9d8d36d8d94e80329a0f5e5b59a9ed245eb93.jar" />
     </item>
     <item
         jar="E:\Program Files\adt-bundle-windows-x86-20140321\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
