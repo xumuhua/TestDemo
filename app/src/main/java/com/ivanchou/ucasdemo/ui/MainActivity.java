@@ -15,16 +15,18 @@ import com.ivanchou.ucasdemo.ui.fragment.JointedFragment;
 import com.ivanchou.ucasdemo.ui.fragment.NavigationDrawerFragment;
 import com.ivanchou.ucasdemo.ui.fragment.NavigationDrawerFragment.NavigationDrawerCallback;
 import com.ivanchou.ucasdemo.ui.fragment.TimeLineFragment;
+import com.ivanchou.ucasdemo.ui.fragment.DetailsFragment;
 
 /**
  * Created by ivanchou on 1/15/2015.
  */
-public class MainActivity extends BaseActivity implements NavigationDrawerCallback{
+public class MainActivity extends BaseActivity implements NavigationDrawerCallback, DetailsFragment.DetailsCallback{
     private CharSequence mTitle;
 
     private static final int TIME_LINE_FRAGMENT = 0;
     private static final int JOINTED_FRAGMENT = 1;
 
+    private DetailsFragment mDetailsFragment;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private TimeLineFragment mTimeLineFragment;
     private JointedFragment mJointedFragment;
