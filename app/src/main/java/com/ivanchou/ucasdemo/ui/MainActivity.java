@@ -14,13 +14,16 @@ import com.ivanchou.ucasdemo.ui.base.BaseActivity;
 import com.ivanchou.ucasdemo.ui.fragment.JointedFragment;
 import com.ivanchou.ucasdemo.ui.fragment.NavigationDrawerFragment;
 import com.ivanchou.ucasdemo.ui.fragment.NavigationDrawerFragment.NavigationDrawerCallback;
+import com.ivanchou.ucasdemo.ui.fragment.PosterAlbumFragment;
+import com.ivanchou.ucasdemo.ui.fragment.PosterAlbumFragment.PosterAlbumCallback;
 import com.ivanchou.ucasdemo.ui.fragment.TimeLineFragment;
 import com.ivanchou.ucasdemo.ui.fragment.DetailsFragment;
+import com.ivanchou.ucasdemo.ui.fragment.DetailsFragment.DetailsCallback;
 
 /**
  * Created by ivanchou on 1/15/2015.
  */
-public class MainActivity extends BaseActivity implements NavigationDrawerCallback, DetailsFragment.DetailsCallback{
+public class MainActivity extends BaseActivity implements NavigationDrawerCallback, DetailsCallback, PosterAlbumCallback{
     private CharSequence mTitle;
 
     private static final int TIME_LINE_FRAGMENT = 0;
@@ -30,6 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private TimeLineFragment mTimeLineFragment;
     private JointedFragment mJointedFragment;
+    private PosterAlbumFragment mPosterAlbumFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +68,14 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
                     mTimeLineFragment = new TimeLineFragment();
                 }
                 mTitle = getString(R.string.drawer_item_timeline);
-                fragmentTransaction.replace(R.id.content_frame, mTimeLineFragment);
+                /*fragmentTransaction.replace(R.id.content_frame, mTimeLineFragment);*/
                 break;
             case JOINTED_FRAGMENT:
                 if (mJointedFragment == null) {
                     mJointedFragment = new JointedFragment();
                 }
                 mTitle = getString(R.string.drawer_item_jointed);
-                fragmentTransaction.replace(R.id.content_frame, mJointedFragment);
+                /*fragmentTransaction.replace(R.id.content_frame, mJointedFragment);*/
                 break;
         }
         setTitle(mTitle);
@@ -97,6 +101,25 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
 
     @Override
     public void onDetailsFragmentClick(int viewID) {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        switch (viewID){
+            case DetailsFragment.POSTER_ON_CLICK:
+                if (mPosterAlbumFragment == null){
+                    mPosterAlbumFragment = new PosterAlbumFragment();
+                }
+                fragmentTransaction.add(R.id.content_frame,mPosterAlbumFragment);
+                break;
+            case DetailsFragment.MAP_ON_CLICK:
+                break;
+            default:
+                break;
+        }
+        fragmentTransaction.commit();
+    }
 
+    @Override
+    public void PosterAlbumQuit() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.remove(mPosterAlbumFragment);
     }
 }
