@@ -42,6 +42,13 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         mTitle = getTitle();
 
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        /*Debug Test Fragment*/
+        mDetailsFragment = new DetailsFragment();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,mTimeLineFragment);
+        fragmentTransaction.commit();
+        /*End Test*/
     }
 
     @Override
