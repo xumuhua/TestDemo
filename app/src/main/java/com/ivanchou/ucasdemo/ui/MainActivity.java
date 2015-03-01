@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         /*Debug Test Fragment*/
         mDetailsFragment = new DetailsFragment();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,mTimeLineFragment);
+        fragmentTransaction.replace(R.id.content_frame,mDetailsFragment);
         fragmentTransaction.commit();
         /*End Test*/
     }
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
                 break;
         }
         setTitle(mTitle);
-        fragmentTransaction.commit();
+        /*fragmentTransaction.commit();*/
     }
 
     public void restoreActionBar() {
