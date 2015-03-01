@@ -94,4 +94,9 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         }
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public void onDetailsFragmentClick(int viewID) {
+
+    }
 }
