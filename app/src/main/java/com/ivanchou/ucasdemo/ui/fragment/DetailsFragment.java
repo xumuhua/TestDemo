@@ -33,6 +33,9 @@ public class DetailsFragment extends BaseFragment {
     private TextView mPlaceAtView;
     private TextView mStartAtView;
     private TextView mTitleView;
+    private TextView mContentView;
+    private TextView mEndAtView;
+    private TextView mSupportView;
     private Button mMapButton;
     private ImageView mPosterView;
 
@@ -53,6 +56,9 @@ public class DetailsFragment extends BaseFragment {
         mTitleView = (TextView) mDetailsView.findViewById(R.id.tv_details_title);
         mMapButton = (Button) mDetailsView.findViewById(R.id.bt_details_map);
         mPosterView = (ImageView) mDetailsView.findViewById(R.id.iv_details_poster_view);
+        mEndAtView = (TextView) mDetailsView.findViewById(R.id.tv_details_end_at);
+        mContentView = (TextView) mDetailsView.findViewById(R.id.tv_details_content);
+        mSupportView = (TextView) mDetailsView.findViewById(R.id.tv_details_supporter);
 
         setListener();
         createTestEvent();
@@ -82,6 +88,9 @@ public class DetailsFragment extends BaseFragment {
         mPlaceAtView.setText(mEvent.placeAt);
         mStartAtView.setText(mEvent.startAt);
         mTitleView.setText(mEvent.title);
+        mContentView.setText(mEvent.content);
+        mEndAtView.setText(mEvent.endAt);
+        mSupportView.setText(mEvent.supporter);
     }
 
     public void getData(){
@@ -91,6 +100,9 @@ public class DetailsFragment extends BaseFragment {
         mPlaceAtView.invalidate();
         mStartAtView.invalidate();
         mTitleView.invalidate();
+        mContentView.invalidate();
+        mEndAtView.invalidate();
+        mSupportView.invalidate();
     }
 
     public void setEvent(EventModel event){
@@ -121,11 +133,20 @@ public class DetailsFragment extends BaseFragment {
      */
     private void createTestEvent(){
         mEvent.author = new UserModel();
-        mEvent.author.name = String.format("name%d",(int)(Math.random() * 100));
+        mEvent.author.name = "应用天团第" + (int)(Math.random() * 100) + "代宗师";
         mEvent.author.userId = (int)(Math.random() * 100);
-        mEvent.startAt = String.format("start%d",(int)(Math.random() * 100));
-        mEvent.placeAt = String.format("place%d",(int)(Math.random() * 100));
-        mEvent.title = String.format("title%d",(int)(Math.random() * 100));
+        mEvent.startAt = "2015/2/" + (int)(Math.random() * 100) + "\n 18:00";
+        mEvent.endAt = "2015/2/" + (int)(Math.random() * 100) + "\n 20:00";
+        mEvent.placeAt = "第一教学楼" + (int)(Math.random() * 100) + "教室";
+        mEvent.title = "应用天团第" + (int)(Math.random() * 100) + "场演习报告大会";
+        mEvent.content = "天气晴朗，阳光明媚，在这风和日丽的春天，我们迎来了应用天团第" +
+                (int)(Math.random() * 100) + "场演习报告大会。本次演习在党的关怀领导下，取得了" +
+                "巨大的成功。在经历了第" + (int)(Math.random() * 100) + "次成功之后，我们总结" +
+                "出了一套强军建国的方法。相信，在未来的" + (int)(Math.random() * 100) + "年之" +
+                "内，我们将处于世界领先的水平，继往开来，勇创新高！我们坚信，经过我们不懈的努" +
+                "力，应用天团必将屹立于世界之巅，为中华之崛起奉献出自己的力量！最后，热烈感谢" +
+                "前来聆听报告的各位领导以及老同志们，向各位领导以及老同志致以节日的祝福！";
+        mEvent.supporter = "中共中央国务院，中共中央巡视组，中共中央统战部";
     }
     /*End Test*/
     public interface DetailsCallback{

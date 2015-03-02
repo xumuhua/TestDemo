@@ -17,6 +17,7 @@ public class PosterAlbumFragment extends BaseFragment {
 
     private View mPosterAlbumView;
     private ImageView mPosterView;
+    private ImageView mBackView;
 
     private Activity mActivity;
     private PosterAlbumCallback mCallback;
@@ -32,6 +33,7 @@ public class PosterAlbumFragment extends BaseFragment {
         mPosterAlbumView = view;
 
         mPosterView = (ImageView) mPosterAlbumView.findViewById(R.id.iv_poster_album_poster);
+        mBackView = (ImageView) mPosterAlbumView.findViewById(R.id.iv_poster_album_back);
 
         setListener();
         return view;
@@ -55,7 +57,7 @@ public class PosterAlbumFragment extends BaseFragment {
     }
 
     private void setListener(){
-        mPosterView.setOnClickListener(new View.OnClickListener() {
+        mBackView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCallback.PosterAlbumQuit();

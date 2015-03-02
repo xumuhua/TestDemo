@@ -23,6 +23,8 @@ public class EventModel {
 
     public String startAt;// 事件的开始时间
 
+    public String endAt;// 事件的结束时间
+
     public String placeAt;// 事件的地点
 
     public String title;// 事件的主题
@@ -30,6 +32,8 @@ public class EventModel {
     public String content;// 事件的详细内容
 
     public long tags;// 事件的标签属性
+
+    public String supporter;// 事件的赞助商
 
     public String thumbnailPic;
 

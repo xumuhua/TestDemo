@@ -89,6 +89,10 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         actionBar.setTitle(mTitle);
     }
 
+    public void createDetailsFragment(){
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -107,7 +111,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
                 if (mPosterAlbumFragment == null){
                     mPosterAlbumFragment = new PosterAlbumFragment();
                 }
-                fragmentTransaction.add(R.id.content_frame,mPosterAlbumFragment);
+                fragmentTransaction.replace(R.id.content_frame,mPosterAlbumFragment);
                 break;
             case DetailsFragment.MAP_ON_CLICK:
                 break;
@@ -120,6 +124,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
     @Override
     public void PosterAlbumQuit() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.remove(mPosterAlbumFragment);
+        fragmentTransaction.replace(R.id.content_frame,mDetailsFragment);
+        fragmentTransaction.commit();
     }
 }

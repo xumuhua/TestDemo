@@ -3,6 +3,12 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/iv_poster_album_back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+    <ImageView
         android:layout_width="300dp"
         android:layout_height="350dp"
         android:id="@+id/iv_poster_album_poster"
