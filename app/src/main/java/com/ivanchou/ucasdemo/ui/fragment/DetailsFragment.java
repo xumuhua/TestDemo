@@ -61,6 +61,8 @@ public class DetailsFragment extends BaseFragment {
         mSupportView = (TextView) mDetailsView.findViewById(R.id.tv_details_supporter);
 
         setListener();
+
+        mEvent =  mCallback.getEvent();
         createTestEvent();
         drawView();
         return view;
@@ -107,6 +109,7 @@ public class DetailsFragment extends BaseFragment {
 
     public void setEvent(EventModel event){
         mEvent = event;
+        getData();
         return;
     }
 
@@ -151,5 +154,6 @@ public class DetailsFragment extends BaseFragment {
     /*End Test*/
     public interface DetailsCallback{
        public void onDetailsFragmentClick(int viewID);
+       public EventModel getEvent();
     }
 }

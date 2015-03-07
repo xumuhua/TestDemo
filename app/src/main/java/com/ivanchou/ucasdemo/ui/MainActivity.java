@@ -8,8 +8,10 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.ImageView;
 
 import com.ivanchou.ucasdemo.R;
+import com.ivanchou.ucasdemo.core.model.EventModel;
 import com.ivanchou.ucasdemo.ui.base.BaseActivity;
 import com.ivanchou.ucasdemo.ui.fragment.JointedFragment;
 import com.ivanchou.ucasdemo.ui.fragment.NavigationDrawerFragment;
@@ -35,6 +37,8 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
     private JointedFragment mJointedFragment;
     private PosterAlbumFragment mPosterAlbumFragment;
 
+    private ImageView [] mImageViews;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +52,8 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         /*Debug Test Fragment*/
-        mDetailsFragment = new DetailsFragment();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame,mDetailsFragment);
-        fragmentTransaction.commit();
+        reSolvePosterImage();
+        createDetailsFragment();
         /*End Test*/
     }
 
@@ -89,10 +91,6 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         actionBar.setTitle(mTitle);
     }
 
-    public void createDetailsFragment(){
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -102,7 +100,38 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
         }
         return super.onCreateOptionsMenu(menu);
     }
+    /*  解析海报图像  */
+    private void reSolvePosterImage(){
+        int [] mImages = new int[] {
+                R.drawable.m1, R.drawable.m2, R.drawable.m3, R.drawable.m4, R.drawable.m5,
+                R.drawable.m6, R.drawable.m7, R.drawable.m8, R.drawable.m9, R.drawable.m10
+        };
 
+        mImageViews = new ImageView[mImages.length];
+        for (int i=0;i<mImages.length;i++){
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(mImages[i]);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setAdjustViewBounds(true);
+            mImageViews[i] = imageView;
+        }
+    }
+
+    /*  构建详情界面  */
+    private void createDetailsFragment(){
+        if (mDetailsFragment == null){
+            mDetailsFragment = new DetailsFragment();
+        }
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame,mDetailsFragment);
+        fragmentTransaction.commit();
+    }
+
+    /*  详情界面借口函数
+    *   onDetailsFragmentClick
+    *       收集来自详情界面的点击事件
+    *   getEvent
+    *       详情界面读取事件*/
     @Override
     public void onDetailsFragmentClick(int viewID) {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -122,9 +151,27 @@ public class MainActivity extends BaseActivity implements NavigationDrawerCallba
     }
 
     @Override
-    public void PosterAlbumQuit() {
+    public EventModel getEvent() {
+        return null;
+    }
+
+    /*  相册界面接口
+    *   onPosterAlbumQuit
+    *       相册界面的退出接口
+    *   getImageViews
+    *       获取图像数据*/
+    @Override
+    public void onPosterAlbumQuit() {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame,mDetailsFragment);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public ImageView[] getImageViews() {
+        return mImageViews;
+    }
+
+
+
 }
